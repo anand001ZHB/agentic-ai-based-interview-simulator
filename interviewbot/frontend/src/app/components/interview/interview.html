@@ -1,0 +1,31 @@
+<div class="container">
+
+  <h2>AI Interview in progress</h2>
+
+  <div *ngIf="loading && !currentQuestion">
+    Starting interview...
+  </div>
+
+  <div *ngIf="currentQuestion">
+
+    <div class="question">
+      {{ currentQuestion }}
+    </div>
+
+    <textarea
+      [(ngModel)]="currentAnswer"
+      [disabled]="loading"
+      placeholder="Type your answer..."
+    ></textarea>
+
+    <button (click)="submitAnswer()" [disabled]="loading">
+      {{ loading ? 'Processing...' : 'Submit Answer' }}
+    </button>
+
+    <div *ngIf="feedback" class="feedback">
+      {{ feedback }}
+    </div>
+
+  </div>
+
+</div>
